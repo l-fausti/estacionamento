@@ -1,3 +1,5 @@
+import jdk.jfr.Enabled;
+
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +14,10 @@ public class Estacionamento {
     public void mostrarVagas() {
         for (int vagaInicial = 0; vagaInicial < vagasDisponiveis.length; vagaInicial++) {
             if(vagasDisponiveis[vagaInicial] == null) {
-                System.out.println("Vaga " + vagaInicial + "está live");
+                System.out.println("Vaga " + vagaInicial + " está live");
             }
             else {
-                System.out.println(vagaInicial + "está ocupada");
+                System.out.println("Vaga " + vagaInicial + " está ocupada");
             }
         }
     }
@@ -25,7 +27,7 @@ public class Estacionamento {
             vagasDisponiveis[posicao] = placa;
             System.out.println("Veículo estacionado na vaga: " + posicao + ". Placa: " + placa);
         }
-        else{
+        else if (vagasDisponiveis[posicao] != null){
             System.out.println("Vaga já está ocupada!");
         }
     }
